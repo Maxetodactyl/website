@@ -37,25 +37,32 @@
     <div id="footer-container"></div>
 
     <script>
-        // Function to load external HTML content (navbar and footer)
-        function loadExternalContent() {
-            // Load Navbar
-            fetch('navbar.html')
+        // Function to load external HTML content
+        function loadExternalContent(containerId, fileName, callback) {
+            fetch(fileName)
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('navbar-container').innerHTML = data;
-                });
-
-            // Load Footer
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                });
+                    document.getElementById(containerId).innerHTML = data;
+                    if (callback) callback();
+                })
+                .catch(error => console.error(`Error loading ${fileName}:`, error));
         }
 
-        // Call the function to load navbar and footer
-        loadExternalContent();
+        // Function to update the date in the footer
+        function updateFooterDate() {
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const year = String(today.getFullYear()).slice(2); // Last two digits of the year
+            const dateElement = document.querySelector("#footer-container #current-date");
+            if (dateElement) {
+                dateElement.textContent = `${day}/${month}/${year}`;
+            }
+        }
+
+        // Load Navbar and Footer, then update the footer date
+        loadExternalContent("navbar-container", "navbar.html");
+        loadExternalContent("footer-container", "footer.html", updateFooterDate);
     </script>
 
 </body>
