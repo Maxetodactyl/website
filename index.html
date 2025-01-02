@@ -3,105 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maxetodactyl</title>
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Layout */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            height: 100vh;
-        }
-
-        /* Side Navbar */
-        nav {
-            width: 200px;
-            background-color: #333;
-            color: white;
-            padding-top: 20px;
-            height: 100%;
-            position: fixed;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            display: block;
-        }
-
-        nav ul li:hover {
-            background-color: #575757;
-        }
-
-        /* Main Content */
-        main {
-            margin-left: 200px;
-            padding: 20px;
-            width: 100%;
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>About - Maxetodactyl</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Side Navbar -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Include Navbar -->
+    <div id="navbar-container"></div>
 
     <!-- Main Content -->
     <main>
         <header>
-            <h1>Welcome to Maxetodactyl</h1>
+            <h1>About Maxetodactyl</h1>
         </header>
 
         <section>
-            <h2>About Us</h2>
-            <p>This is a simple webpage for the Maxetodactyl project.</p>
+            <h2>Our Mission</h2>
+            <p>Maxetodactyl is dedicated to pushing the boundaries of innovation in technology. Our goal is to develop solutions that are not only efficient but also accessible to everyone, regardless of their technical expertise.</p>
+        </section>
+
+        <section>
+            <h2>What We Do</h2>
+            <p>We specialize in developing cutting-edge applications and systems for a variety of industries, focusing on scalability, performance, and user experience. Our team works tirelessly to provide products that are both powerful and intuitive.</p>
+        </section>
+
+        <section>
+            <h2>Our Team</h2>
+            <p>The Maxetodactyl team is composed of passionate individuals with diverse backgrounds in software development, data science, and systems engineering. Together, we aim to make a lasting impact on the tech industry.</p>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Maxetodactyl. All rights reserved.</p>
-    </footer>
+    <!-- Include Footer -->
+    <div id="footer-container"></div>
+
+    <script>
+        // Function to load external HTML content (navbar and footer)
+        function loadExternalContent() {
+            // Load Navbar
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                });
+
+            // Load Footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+        }
+
+        // Call the function to load navbar and footer
+        loadExternalContent();
+    </script>
 
 </body>
 </html>
