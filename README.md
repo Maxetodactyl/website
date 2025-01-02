@@ -11,7 +11,7 @@ This is the main website for Maxetodactyl
 │   │   └── scripts.js         # Main JavaScript file
 │   ├── /images                # Folder for images (logos, icons, etc.)
 │   │   └── logo.png
-├── /components
+├── /Components
 │   ├── navbar.html            # Navbar component
 │   ├── footer.html            # Footer component
 ├── /pages
