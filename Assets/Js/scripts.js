@@ -1,18 +1,34 @@
 // Load external content (e.g., navbar, footer)
-function loadContent(containerId, fileName, callback) {
-    fetch(`/Components/${fileName}`)  // Corrected path to the component folder  // Corrected path to the component folder
-        .then(response => {
+function loadContent(containerId, fileNames, callback) {
+    // Create an array of fetch promises for each file
+    const fetchPromises = fileNames.map(fileName =>
+        fetch(`/Components/${fileName}`).then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
             }
             return response.text();
         })
-        .then(data => {
-            document.getElementById(containerId).innerHTML = data;
+    );
+
+    // Use Promise.all to wait for both fetch requests to complete
+    Promise.all(fetchPromises)
+        .then(responses => {
+            // Assign the content to the respective containers
+            responses.forEach((data, index) => {
+                const containerIdForFile = containerId[index];
+                document.getElementById(containerIdForFile).innerHTML = data;
+            });
             if (callback) callback(); // Optional callback after content loads
         })
         .catch(error => console.error(error));
 }
+
+// Call the function to load both navbar and footer
+loadContent(
+    ['navbar-container', 'footer-container'], // IDs of the containers to populate
+    ['navbar.html', 'footer.html']            // Files to load
+);
+
 
 // Update footer date with format 01.01.25
 function updateFooterDate() {
@@ -26,11 +42,4 @@ function updateFooterDate() {
     }
 }
 
-// Initialize the page (Load navbar and footer, update date)
-function initializePage() {
-    loadContent("navbar-container", "navbar.html");
-    loadContent("footer-container", "footer.html", updateFooterDate);
-}
 
-// Run initialization when DOM is loaded
-document.addEventListener("DOMContentLoaded", initializePage);
