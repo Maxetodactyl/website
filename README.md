@@ -2,6 +2,7 @@
 This is the main website for Maxetodactyl
 
 # Proposed File Structure
+```
 /project
 ├── /assets
 │   ├── /css
@@ -19,4 +20,4 @@ This is the main website for Maxetodactyl
 │   ├── services.html          # Services page
 │   ├── contact.html           # Contact page
 ├── README.md                  # Project documentation
-
+```
