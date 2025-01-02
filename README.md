@@ -1,5 +1,7 @@
-# website
-This is the main website for Maxetodactyl
+# Maxetodactyl
+Fast travel link
+[https://Maxetodactyl.com](https://Maxetodactyl.github.io )
+
 
 # Proposed File Structure
 ```
