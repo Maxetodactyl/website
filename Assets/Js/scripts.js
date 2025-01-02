@@ -1,11 +1,11 @@
 // Load external content (e.g., navbar, footer)
 function loadContent(containerId, fileNames, callback) {
-    // Determine the correct base path
-    const basePath = window.location.pathname.includes("/Pages/") ? "../" : "/";
+    // Always use an absolute path from the root
+    const basePath = "/Components/"; 
 
     // Create an array of fetch promises for each file
     const fetchPromises = fileNames.map(fileName =>
-        fetch(`${basePath}Components/${fileName}`).then(response => {
+        fetch(`${basePath}${fileName}`).then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
             }
