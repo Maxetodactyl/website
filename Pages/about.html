@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Maxetodactyl</title>
     <link rel="stylesheet" href="../Assets/Css/styles.css">
+    <script src="../Assets/Js/scripts.js" defer></script>
 </head>
 <body>
 
@@ -35,28 +36,6 @@
 
     <!-- Include Footer -->
     <div id="footer-container"></div>
-
-    <script>
-        // Function to load external HTML content (navbar and footer)
-        function loadExternalContent() {
-            // Load Navbar
-            fetch('navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-container').innerHTML = data;
-                });
-
-            // Load Footer
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('footer-container').innerHTML = data;
-                });
-        }
-
-        // Call the function to load navbar and footer
-        loadExternalContent();
-    </script>
 
 </body>
 </html>
