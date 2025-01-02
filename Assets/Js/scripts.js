@@ -1,7 +1,7 @@
 // Load external content (e.g., navbar, footer)
 function loadContent(containerId, fileNames, callback) {
     // Always use an absolute path from the root
-    const basePath = "./Components/"; 
+    const basePath = "/Components/"; 
 
     // Create an array of fetch promises for each file
     const fetchPromises = fileNames.map(fileName =>
