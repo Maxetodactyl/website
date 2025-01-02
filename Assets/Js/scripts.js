@@ -1,11 +1,12 @@
 // Load external content (e.g., navbar, footer)
 function loadContent(containerId, fileNames, callback) {
-    // Always use an absolute path from the root
-    const basePath = "/Components/"; 
+    // Check if we are on a sub-page and adjust the path accordingly
+    const isInPages = window.location.pathname.includes("/Pages/");
+    const basePath = isInPages ? "../" : ""; // Use '../' when inside /Pages/
 
     // Create an array of fetch promises for each file
     const fetchPromises = fileNames.map(fileName =>
-        fetch(`${basePath}${fileName}`).then(response => {
+        fetch(`${basePath}Components/${fileName}`).then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
             }
@@ -31,7 +32,6 @@ loadContent(
     ['navbar-container', 'footer-container'], // IDs of the containers to populate
     ['navbar.html', 'footer.html']            // Files to load
 );
-
 
 
 
