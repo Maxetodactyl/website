@@ -3,54 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Maxetodactyl</title>
+    <title>Index - Maxetodactyl</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
-
-    <!-- Include Navbar -->
+    <!-- Navbar -->
     <div id="navbar-container"></div>
 
     <!-- Main Content -->
     <main>
         <header>
-            <h1>About Maxetodactyl</h1>
+            <h1>Welcome to Maxetodactyl</h1>
         </header>
-
         <section>
-            <h2>Our Mission</h2>
-            <p>Maxetodactyl is dedicated to pushing the boundaries of innovation in technology. Our goal is to develop solutions that are not only efficient but also accessible to everyone, regardless of their technical expertise.</p>
-        </section>
-
-        <section>
-            <h2>What We Do</h2>
-            <p>We specialize in developing cutting-edge applications and systems for a variety of industries, focusing on scalability, performance, and user experience. Our team works tirelessly to provide products that are both powerful and intuitive.</p>
-        </section>
-
-        <section>
-            <h2>Our Team</h2>
-            <p>The Maxetodactyl team is composed of passionate individuals with diverse backgrounds in software development, data science, and systems engineering. Together, we aim to make a lasting impact on the tech industry.</p>
+            <p>Explore cutting-edge innovation with Maxetodactyl.</p>
         </section>
     </main>
 
-    <!-- Include Footer -->
+    <!-- Footer -->
     <div id="footer-container"></div>
-
-    <script>
-        // Function to load external content
-        function loadExternalContent(containerId, fileName) {
-            fetch(fileName)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(containerId).innerHTML = data;
-                })
-                .catch(error => console.error(`Error loading ${fileName}:`, error));
-        }
-
-        // Load Navbar and Footer
-        loadExternalContent("navbar-container", "navbar.html");
-        loadExternalContent("footer-container", "footer.html");
-    </script>
-
 </body>
 </html>
