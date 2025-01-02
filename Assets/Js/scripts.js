@@ -1,6 +1,6 @@
 // Load external content (e.g., navbar, footer)
 function loadContent(containerId, fileName, callback) {
-    fetch(`../Components/${fileName}`)  // Updated the path to include assets/html
+    fetch(`Components/${fileName}`)  // Updated the path to include assets/html
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch ${fileName}: ${response.statusText}`);
