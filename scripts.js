@@ -14,15 +14,15 @@ function loadContent(containerId, fileName, callback) {
         .catch(error => console.error(error));
 }
 
-// Update footer date
+// Update footer date with format 01.01.25
 function updateFooterDate() {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = String(today.getFullYear()).slice(2);
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = String(today.getFullYear()).slice(2); // Last two digits of the year
     const dateElement = document.querySelector("#footer-container #current-date");
     if (dateElement) {
-        dateElement.textContent = `${day}/${month}/${year}`;
+        dateElement.textContent = `${day}.${month}.${year}`;
     }
 }
 
