@@ -8,15 +8,8 @@
 </head>
 <body>
 
-    <!-- Side Navbar -->
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Include Navbar -->
+    <div id="navbar-container"></div>
 
     <!-- Main Content -->
     <main>
@@ -40,10 +33,30 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Maxetodactyl. All rights reserved.</p>
-    </footer>
+    <!-- Include Footer -->
+    <div id="footer-container"></div>
+
+    <script>
+        // Function to load external HTML content (navbar and footer)
+        function loadExternalContent() {
+            // Load Navbar
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                });
+
+            // Load Footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                });
+        }
+
+        // Call the function to load navbar and footer
+        loadExternalContent();
+    </script>
 
 </body>
 </html>
