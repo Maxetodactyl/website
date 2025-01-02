@@ -5,16 +5,16 @@ This is the main website for Maxetodactyl
 ```
 /project
 ├── /assets
-│   ├── /css
+│   ├── /Css
 │   │   └── styles.css         # Main stylesheet
-│   ├── /js
+│   ├── /Js
 │   │   └── scripts.js         # Main JavaScript file
 │   ├── /images                # Folder for images (logos, icons, etc.)
 │   │   └── logo.png
 ├── /Components
 │   ├── navbar.html            # Navbar component
 │   ├── footer.html            # Footer component
-├── /pages
+├── /Pages
 │   ├── index.html             # Home page
 │   ├── about.html             # About page
 │   ├── services.html          # Services page
